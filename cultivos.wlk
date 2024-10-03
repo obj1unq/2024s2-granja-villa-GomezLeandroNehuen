@@ -1,12 +1,35 @@
 import wollok.game.*
+import hector.*
+import granja.*
+
 
 class Maiz {
-	method position() {
-		// TODO: hacer que aparezca donde lo plante Hector
-		return game.at(1, 1)
+	var property position
+	var property image = "corn_baby.png"
+
+	method regar() {
+		image = "corn_adult.png"
 	}
-	method image() {
-		// TODO: hacer que devuelva la imagen que corresponde
-		return "corn_baby.png"
+
+}
+
+class Trigo {
+	var property position
+	var property image = "wheat_0.png"	
+
+	method regar() {
+		
 	}
 }
+
+class Tomaco {
+	var property position
+	var property image = "tomaco.png"
+
+	method regar() {
+		
+	}
+
+}
+
+
