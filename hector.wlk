@@ -40,6 +40,11 @@ object hector {
 		granja.cultivoEn(self.position()).regar()
 	}
 
+	method cosecharAca() {
+		granja.validarCosecha()
+		const planta = granja.cultivoEn(hector.position)
+		granja.cosechar(planta)
+	}
 }
 
 

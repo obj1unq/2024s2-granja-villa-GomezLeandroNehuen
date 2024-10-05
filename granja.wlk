@@ -44,21 +44,39 @@ object granja {
 
    	method validarSiPuedoPlantar() {
 		if (self.hayPlantaEnPosicion()) { 
-			self.error ("No se puede plantar acá.") 
+			hector.error ("No se puede plantar acá.") 
 		}
 	}
 
     method hayPlantaEnPosicion() {
-      return self.sembrado().any({planta => planta.position() == hector.position()})
+      return self.sembrado().any({planta => planta.position() == hector.position })
     }
 
     method validarRegar() {
-		if(self.hayPlantaEnPosicion()) {
-			self.error ("No se puede regar acá.")
+		if(not self.hayPlantaEnPosicion()) {
+			hector.error ("No se puede regar acá.")
 		}
 	}
 
     method cultivoEn(position) {
         return self.sembrado().find({planta => planta.position() == position})
     }
+
+	method validarCosecha() {
+		if (not self.hayPlantaAdulta()) { 
+			hector.error ("No se puede cosechar acá.") 
+		}
+	}
+
+	method hayPlantaAdulta() {
+		return self.sembrado().any({planta => planta.etapaEvolutiva() > 0 })
+	}
+
+	method cosechar(planta) {
+		game.removeVisual (planta)
+		sembrado.remuve(planta)
+	}
 }
+
+//RESUMEN DE PROBLEMAS:
+// Al principio podía sembrar y regar el trigo y el maiz. Luego de intentar implementar cosechar, hector solo puede sembrar una cosa y luego ya no puede hacer nada. No sé qué pasó :( 

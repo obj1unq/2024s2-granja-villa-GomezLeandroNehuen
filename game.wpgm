@@ -22,6 +22,7 @@ program farmville {
 	keyboard.t().onPressDo({hector.sembrarTrigo()})
 	keyboard.o().onPressDo({hector.sembrarTomaco()})
 	keyboard.r().onPressDo({hector.regarAca()})
+	keyboard.c().onPressDo({hector.cosecharAca()})
 
 	game.start()
 }
